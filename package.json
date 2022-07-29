@@ -19,7 +19,7 @@
   },
   "keywords": [
     "rescript",
-    "cypress"
+    "rxjs"
   ],
   "author": "Alex Mouton <alex.mouton@noble.ai>",
   "license": "MIT",
