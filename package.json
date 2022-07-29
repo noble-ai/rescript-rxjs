@@ -1,6 +1,6 @@
 {
   "name": "@nobleai/rescript-rxjs",
-  "version": "6.6.1",
+  "version": "6.6.4",
   "description": "Rescript bindings for Rxjs",
   "files": [
     "README.md",
@@ -28,8 +28,8 @@
     "url": "git+ssh://github.com/noble-ai/rescript-rxjs.git"
   },
   "devDependencies": {
-    "rxjs": "^6.6.7",
-    "rescript": "^9.1.4"
+    "rescript": "^9.1.4",
+    "rxjs": "^6.6.7"
   },
   "peerDependencies": {
     "rxjs": "^6.6.7"
