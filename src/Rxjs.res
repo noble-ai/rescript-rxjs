@@ -74,6 +74,9 @@ module Subject = {
 @send external pipe2: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>)) => t<'class, 'source, 'c> = "pipe"
 @send external pipe3: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>)) => t<'class, 'source, 'd> = "pipe"
 @send external pipe4: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>)) => t<'class, 'source, 'e> = "pipe"
+@send external pipe5: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>), ((. t<'class, 'source, 'e>) => t<'class, 'source, 'f>)) => t<'class, 'source, 'f> = "pipe"
+@send external pipe6: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>), ((. t<'class, 'source, 'e>) => t<'class, 'source, 'f>), ((. t<'class, 'source, 'f>) => t<'class, 'source, 'g>)) => t<'class, 'source, 'g> = "pipe"
+@send external pipe7: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>), ((. t<'class, 'source, 'e>) => t<'class, 'source, 'f>), ((. t<'class, 'source, 'f>) => t<'class, 'source, 'g>), ((. t<'class, 'source, 'g>) => t<'class, 'source, 'h>)) => t<'class, 'source, 'h> = "pipe"
 
 @send external subscribe: (t<'class, 'source, 'a>, t<'co, source<'a>, 'out>) => subscription = "subscribe"
 @send external subscribe_: (t<'class, 'source, 'a>, t<'co, source<'a>, 'out>) => unit = "subscribe"
@@ -93,7 +96,10 @@ external toObservable: t<'c, 's, 'a> => t<foreign, void, 'a> = "%identity"
 @module("rxjs") external combineLatest3: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>) => t<foreign, void, ('a, 'b, 'c)> = "combineLatest"
 @module("rxjs") external combineLatest4: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>) => t<foreign, void, ('a, 'b, 'c, 'd)> = "combineLatest"
 @module("rxjs") external combineLatest5: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>) => t<foreign, void, ('a, 'b, 'c, 'd, 'e)> = "combineLatest"
+@module("rxjs") external combineLatest6: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>) => t<foreign, void, ('a, 'b, 'c, 'd, 'e, 'f)> = "combineLatest"
+@module("rxjs") external combineLatest7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, t<'cg, 'sg, 'g>) => t<foreign, void, ('a, 'b, 'c, 'd, 'e, 'f, 'g)> = "combineLatest"
 @module("rxjs") external combineLatestArray: array<t<foreign, void, 'a>> => t<foreign, void, array<'a>> = "combineLatest"
+
 @module("rxjs") external concatAll: (unit, . t<'co, 'so, t<'c, 's, 'b>>) => t<'co, 'so, 'b> = "concatAll"
 @module("rxjs") external concatMap: ('a => t<foreign, void, 'b>, . t<'c, 's, 'a>) => t<'c, 's, 'b> = "concatMap"
 @module("rxjs") external debounce: (t<'ca, 'sa, 'a>, . t<'cb, 'sb, 'b>) => t<'cb, 'sb, 'b> = "debounce"
@@ -114,8 +120,13 @@ external toObservable: t<'c, 's, 'a> => t<foreign, void, 'a> = "%identity"
 @module("rxjs") external map: (. ('a, int) => 'b, . t<'c,'s,'a>) => t<'c, 's, 'b> = "map"
 let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 
+
 @module("rxjs") external merge2: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge3: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>) => t<foreign, void, 'a> = "merge"
+@module("rxjs") external merge4: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>) => t<foreign, void, 'a> = "merge"
+@module("rxjs") external merge5: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, t<'ce, 'se, 'a>) => t<foreign, void, 'a> = "merge"
+@module("rxjs") external merge6: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, t<'ce, 'se, 'a>, t<'cf, 'sf, 'a>) => t<foreign, void, 'a> = "merge"
+@module("rxjs") external merge7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, t<'ce, 'se, 'a>, t<'cf, 'sf, 'a>, t<'cg, 'sg, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external mergeMap: ('a => t<'cb, 'sb, 'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "mergeMap"
 @module("rxjs") external return: 'a => t<foreign, void, 'a> = "of" // of is keyword so rename
 @module("rxjs") external scan: ( ('b, 'a, int) => 'b, 'b, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "scan"
@@ -127,6 +138,11 @@ let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 @module("rxjs") external toArray: (unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, array<'a>> = "toArray"
 @module("rxjs") external withLatestFrom: (t<'ca, 'sa, 'a>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a)> = "withLatestFrom"
 @module("rxjs") external withLatestFrom2: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b)> = "withLatestFrom"
+@module("rxjs") external withLatestFrom3: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c)> = "withLatestFrom"
+@module("rxjs") external withLatestFrom4: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd)> = "withLatestFrom"
+@module("rxjs") external withLatestFrom5: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd, 'e)> = "withLatestFrom"
+@module("rxjs") external withLatestFrom6: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd, 'e, 'f)> = "withLatestFrom"
+@module("rxjs") external withLatestFrom7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, t<'cg, 'sg, 'g>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd, 'e, 'f, 'g)> = "withLatestFrom"
 
 let keepMap: ( 'a => option<'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = (f, . xs) => {
   xs->pipe3(
