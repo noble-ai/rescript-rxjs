@@ -103,10 +103,13 @@ external toObservable: t<'c, 's, 'a> => t<foreign, void, 'a> = "%identity"
 @module("rxjs") external concatAll: (unit, . t<'co, 'so, t<'c, 's, 'b>>) => t<'co, 'so, 'b> = "concatAll"
 @module("rxjs") external concatMap: ('a => t<foreign, void, 'b>, . t<'c, 's, 'a>) => t<'c, 's, 'b> = "concatMap"
 @module("rxjs") external debounce: (t<'ca, 'sa, 'a>, . t<'cb, 'sb, 'b>) => t<'cb, 'sb, 'b> = "debounce"
+@module("rxjs") external defer: (unit => t<'c, 's, 'a>) => t<foreign, void, 'a> = "defer"
 @module("rxjs") external deferPromise: (unit => Js.Promise.t<'a>) => t<foreign, void, 'a> = "defer"
 @module("rxjs") external distinct: (unit, . t<'co, 'so, 'a>) => t<'co, 'so, 'a> = "distinct"
 
 @module("rxjs") external filter: ('a => bool, . t<'c, 's, 'a>) => t<'c, 's, 'a> = "filter"
+@module("rxjs") external finalize: (() => (), . t<'c, 's, 'a>) => t<'c, 's, 'a> = "finalize"
+
 // type filter<'a, 'c, 's>> = {
 //   fn: ('a => bool, . t<'c, 's, 'a>) => t<'c, 's, 'a>
 // }
@@ -132,6 +135,7 @@ let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 @module("rxjs") external scan: ( ('b, 'a, int) => 'b, 'b, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "scan"
 @module("rxjs") external share: (unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "share"
 @module("rxjs") external startWith: ('a, .t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "startWith"
+@module("rxjs") external switchMap: ('a => t<'cb, 'sb, 'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "switchMap"
 @module("rxjs") external take: (int, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "take"
 @module("rxjs") external tap: ('a => unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "tap"
 @module("rxjs") external tapErrorComplete: ('a => unit, err => unit, unit => unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "tap"
