@@ -68,15 +68,15 @@ module Subject = {
   @module("rxjs") @new external makeEmpty: unit => t<'a> = "Subject"
 }
 
-@send external next: (t<'class, source<'a>, 'b>, 'a) => unit = "next"
+@send external next: (t<'c, source<'a>, 'b>, 'a) => unit = "next"
 
-@send external pipe: (t<'class, 'source, 'a>, (. t<'class, 'source, 'a>) => t<'class, 'source, 'b>) => t<'class, 'source, 'b> = "pipe"
-@send external pipe2: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>)) => t<'class, 'source, 'c> = "pipe"
-@send external pipe3: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>)) => t<'class, 'source, 'd> = "pipe"
-@send external pipe4: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>)) => t<'class, 'source, 'e> = "pipe"
-@send external pipe5: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>), ((. t<'class, 'source, 'e>) => t<'class, 'source, 'f>)) => t<'class, 'source, 'f> = "pipe"
-@send external pipe6: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>), ((. t<'class, 'source, 'e>) => t<'class, 'source, 'f>), ((. t<'class, 'source, 'f>) => t<'class, 'source, 'g>)) => t<'class, 'source, 'g> = "pipe"
-@send external pipe7: (t<'class, 'source, 'a>, ((. t<'class, 'source, 'a>) => t<'class, 'source, 'b>), ((. t<'class, 'source, 'b>) => t<'class, 'source, 'c>), ((. t<'class, 'source, 'c>) => t<'class, 'source, 'd>), ((. t<'class, 'source, 'd>) => t<'class, 'source, 'e>), ((. t<'class, 'source, 'e>) => t<'class, 'source, 'f>), ((. t<'class, 'source, 'f>) => t<'class, 'source, 'g>), ((. t<'class, 'source, 'g>) => t<'class, 'source, 'h>)) => t<'class, 'source, 'h> = "pipe"
+@send external pipe: (t<'c, 's, 'a>, (. t<'c, 's, 'a>) => t<'c, 's, 'b>) => t<'c, 's, 'b> = "pipe"
+@send external pipe2: (t<'c, 's, 'a>, ((. t<'c, 's, 'a>) => t<'c, 's, 'b>), ((. t<'c, 's, 'b>) => t<'c, 's, 'c>)) => t<'c, 's, 'c> = "pipe"
+@send external pipe3: (t<'c, 's, 'a>, ((. t<'c, 's, 'a>) => t<'c, 's, 'b>), ((. t<'c, 's, 'b>) => t<'c, 's, 'c>), ((. t<'c, 's, 'c>) => t<'c, 's, 'd>)) => t<'c, 's, 'd> = "pipe"
+@send external pipe4: (t<'c, 's, 'a>, ((. t<'c, 's, 'a>) => t<'c, 's, 'b>), ((. t<'c, 's, 'b>) => t<'c, 's, 'c>), ((. t<'c, 's, 'c>) => t<'c, 's, 'd>), ((. t<'c, 's, 'd>) => t<'c, 's, 'e>)) => t<'c, 's, 'e> = "pipe"
+@send external pipe5: (t<'c, 's, 'a>, ((. t<'c, 's, 'a>) => t<'c, 's, 'b>), ((. t<'c, 's, 'b>) => t<'c, 's, 'c>), ((. t<'c, 's, 'c>) => t<'c, 's, 'd>), ((. t<'c, 's, 'd>) => t<'c, 's, 'e>), ((. t<'c, 's, 'e>) => t<'c, 's, 'f>)) => t<'c, 's, 'f> = "pipe"
+@send external pipe6: (t<'c, 's, 'a>, ((. t<'c, 's, 'a>) => t<'c, 's, 'b>), ((. t<'c, 's, 'b>) => t<'c, 's, 'c>), ((. t<'c, 's, 'c>) => t<'c, 's, 'd>), ((. t<'c, 's, 'd>) => t<'c, 's, 'e>), ((. t<'c, 's, 'e>) => t<'c, 's, 'f>), ((. t<'c, 's, 'f>) => t<'c, 's, 'g>)) => t<'c, 's, 'g> = "pipe"
+@send external pipe7: (t<'c, 's, 'a>, ((. t<'c, 's, 'a>) => t<'c, 's, 'b>), ((. t<'c, 's, 'b>) => t<'c, 's, 'c>), ((. t<'c, 's, 'c>) => t<'c, 's, 'd>), ((. t<'c, 's, 'd>) => t<'c, 's, 'e>), ((. t<'c, 's, 'e>) => t<'c, 's, 'f>), ((. t<'c, 's, 'f>) => t<'c, 's, 'g>), ((. t<'c, 's, 'g>) => t<'c, 's, 'h>)) => t<'c, 's, 'h> = "pipe"
 
 @send external subscribe: (t<'class, 'source, 'a>, t<'co, source<'a>, 'out>) => subscription = "subscribe"
 @send external subscribe_: (t<'class, 'source, 'a>, t<'co, source<'a>, 'out>) => unit = "subscribe"
