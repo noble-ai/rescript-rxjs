@@ -137,6 +137,7 @@ let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 @module("rxjs") external return: 'a => t<foreign, void, 'a> = "of" // of is keyword so rename
 @module("rxjs") external scan: ( ('b, 'a, int) => 'b, 'b, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "scan"
 @module("rxjs") external share: (unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "share"
+@module("rxjs") external shareReplay: (int, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "shareReplay"
 @module("rxjs") external startWith: ('a, .t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "startWith"
 @module("rxjs") external switchMap: ('a => t<'cb, 'sb, 'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "switchMap"
 @module("rxjs") external take: (int, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "take"
