@@ -122,8 +122,8 @@ external toObservable: t<'c, 's, 'a> => t<foreign, void, 'a> = "%identity"
 @module("rxjs") external interval: int => t<foreign, void, int> = "interval"
 @module("rxjs") external last: (unit, . t<'c, 's, 'a>) => t<'c, 's, 'a> = "last"
 @module("rxjs") external lastValueFrom: t<'c, 's, 'a> => Js.Promise.t<'a> = "lastValueFrom"
-@module("rxjs") external map: (. ('a, int) => 'b, . t<'c,'s,'a>) => t<'c, 's, 'b> = "map"
-let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
+@module("rxjs") external map: (@uncurry (('a, int) => 'b), . t<'c,'s,'a>) => t<'c, 's, 'b> = "map"
+let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map((_, _) => b)
 
 
 @module("rxjs") external merge2: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>) => t<foreign, void, 'a> = "merge"
@@ -153,14 +153,14 @@ type timeinterval<'a> = { interval: int, value: 'a }
 @module("rxjs") external withLatestFrom6: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd, 'e, 'f)> = "withLatestFrom"
 @module("rxjs") external withLatestFrom7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, t<'cg, 'sg, 'g>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd, 'e, 'f, 'g)> = "withLatestFrom"
 
-let keepMap: ( 'a => option<'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = (f, . xs) => {
+let keepMap: ('a => option<'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = (f, . xs) => {
   xs->pipe3(
-    map(. (a, _) => f(a)),
-    filter( x => switch x {
+    map((a, _) => f(a)),
+    filter(x => switch x {
       | Some(_) => true
       | None => false
     }),
-    map(. (a, _) => {
+    map((a, _) => {
       switch a {
         | Some(a) => a
         | None => Js.Exn.raiseError("Rxjs keepMap asserted that an element should exist")
