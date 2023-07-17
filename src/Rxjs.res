@@ -153,19 +153,11 @@ type timeinterval<'a> = { interval: int, value: 'a }
 @module("rxjs") external withLatestFrom6: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd, 'e, 'f)> = "withLatestFrom"
 @module("rxjs") external withLatestFrom7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, t<'cg, 'sg, 'g>, . t<'cz, 'sz, 'z>) => t<'cz, 'sz, ('z, 'a, 'b, 'c, 'd, 'e, 'f, 'g)> = "withLatestFrom"
 
-let keepMap: ( 'a => option<'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = (f, . xs) => {
+let keepMap: ('a => option<'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = (f, . xs) => {
   xs->pipe3(
-    map(. (a, _) => f(a)),
-    filter( x => switch x {
-      | Some(_) => true
-      | None => false
-    }),
-    map(. (a, _) => {
-      switch a {
-        | Some(a) => a
-        | None => Js.Exn.raiseError("Rxjs keepMap asserted that an element should exist")
-      }
-    })
+    map(.(a, _) => f(a)),
+    filter(Js.Option.isSome),
+    map(.(a, _) => Js.Option.getExn(a))
   )
 }
 
