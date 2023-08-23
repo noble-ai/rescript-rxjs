@@ -136,6 +136,7 @@ let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 @module("rxjs") external mergeMap: ('a => t<'cb, 'sb, 'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "mergeMap"
 @module("rxjs") external mergeAll: (unit, . t<'ca, 'sa, t<'c, 's, 'b>>) => t<'ca, 'sa, 'b> = "mergeAll"
 @module("rxjs") external return: 'a => t<foreign, void, 'a> = "of" // of is keyword so rename
+@module("rxjs") external reduce: ( ('b, 'a, int) => 'b, 'b, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "reduce"
 @module("rxjs") external scan: ( ('b, 'a, int) => 'b, 'b, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "scan"
 @module("rxjs") external share: (unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "share"
 @module("rxjs") external shareReplay: (int, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "shareReplay"
