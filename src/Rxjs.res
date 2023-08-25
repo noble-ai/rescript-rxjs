@@ -134,6 +134,14 @@ let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 @module("rxjs") external merge6: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, t<'ce, 'se, 'a>, t<'cf, 'sf, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, t<'ce, 'se, 'a>, t<'cf, 'sf, 'a>, t<'cg, 'sg, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external mergeMap: ('a => t<'cb, 'sb, 'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "mergeMap"
+
+@module("rxjs") external mergeWith2: (t<'ca, 'sa, 'a>, . t<'cb, 'sb, 'a>) => t<foreign, void, 'a> = "mergeWith"
+@module("rxjs") external mergeWith3: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, . t<'cc, 'sc, 'a>) => t<foreign, void, 'a> = "mergeWith"
+@module("rxjs") external mergeWith4: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, . t<'cd, 'sd, 'a>) => t<foreign, void, 'a> = "mergeWith"
+@module("rxjs") external mergeWith5: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, . t<'ce, 'se, 'a>) => t<foreign, void, 'a> = "mergeWith"
+@module("rxjs") external mergeWith6: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, t<'ce, 'se, 'a>, . t<'cf, 'sf, 'a>) => t<foreign, void, 'a> = "mergeWith" 
+@module("rxjs") external mergeWith7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>, t<'ce, 'se, 'a>, t<'cf, 'sf, 'a>, . t<'cg, 'sg, 'a>) => t<foreign, void, 'a> = "mergeWith"
+
 @module("rxjs") external mergeAll: (unit, . t<'ca, 'sa, t<'c, 's, 'b>>) => t<'ca, 'sa, 'b> = "mergeAll"
 @module("rxjs") external return: 'a => t<foreign, void, 'a> = "of" // of is keyword so rename
 @module("rxjs") external reduce: ( ('b, 'a, int) => 'b, 'b, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "reduce"
