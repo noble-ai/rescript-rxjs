@@ -1,6 +1,6 @@
 {
   "name": "@nobleai/rescript-rxjs",
-  "version": "7.5.11",
+  "version": "7.5.12",
   "description": "Rescript bindings for Rxjs",
   "files": [
     "README.md",
