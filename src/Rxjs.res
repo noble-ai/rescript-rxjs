@@ -128,6 +128,7 @@ external toObservable: t<'c, 's, 'a> => t<foreign, void, 'a> = "%identity"
 let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 
 
+@module("rxjs") external mergeArray: array<t<'ca, 'sa, 'a>> => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge2: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge3: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge4: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>) => t<foreign, void, 'a> = "merge"
@@ -152,6 +153,7 @@ let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 @module("rxjs") external startWith: ('a, .t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "startWith"
 @module("rxjs") external switchMap: ('a => t<'cb, 'sb, 'b>, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'b> = "switchMap"
 @module("rxjs") external take: (int, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "take"
+@module("rxjs") external skip: (int, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "skip"
 @module("rxjs") external tap: ('a => unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "tap"
 @module("rxjs") external tapErrorComplete: ('a => unit, err => unit, unit => unit, . t<'ca, 'sa, 'a>) => t<'ca, 'sa, 'a> = "tap"
 type timeinterval<'a> = { interval: int, value: 'a }
