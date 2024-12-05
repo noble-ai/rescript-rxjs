@@ -128,7 +128,7 @@ external toObservable: t<'c, 's, 'a> => t<foreign, void, 'a> = "%identity"
 let const: ('b, . t<'c, 's, 'a>) => t<'c, 's, 'b> = (b) => map(. (_, _) => b)
 
 
-@module("rxjs") external mergeArray: array<t<'ca, 'sa, 'a>> => t<foreign, void, 'a> = "merge"
+@module("rxjs") @variadic external mergeArray: array<t<'ca, 'sa, 'a>> => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge2: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge3: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>) => t<foreign, void, 'a> = "merge"
 @module("rxjs") external merge4: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'a>, t<'cc, 'sc, 'a>, t<'cd, 'sd, 'a>) => t<foreign, void, 'a> = "merge"
