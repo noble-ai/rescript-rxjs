@@ -102,6 +102,7 @@ external toObserver: t<'c, source<'s>, 'a> => Observer.t<'s> = "%identity"
 @module("rxjs") external combineLatest7: (t<'ca, 'sa, 'a>, t<'cb, 'sb, 'b>, t<'cc, 'sc, 'c>, t<'cd, 'sd, 'd>, t<'ce, 'se, 'e>, t<'cf, 'sf, 'f>, t<'cg, 'sg, 'g>) => t<foreign, void, ('a, 'b, 'c, 'd, 'e, 'f, 'g)> = "combineLatest"
 @module("rxjs") @variadic external combineLatestArray: array<t<foreign, void, 'a>> => t<foreign, void, array<'a>> = "combineLatest"
 
+@module("rxjs") @variadic external concatArray: array<t<'ca, 'sa, 'a>> => t<'ca, 'sa, 'a> = "concat"
 @module("rxjs") external concatAll: (unit) => (. t<'co, 'so, t<'c, 's, 'b>>) => t<'co, 'so, 'b> = "concatAll"
 @module("rxjs") external concatMap: ('a => t<foreign, void, 'b>) => (. t<'c, 's, 'a>) => t<'c, 's, 'b> = "concatMap"
 @module("rxjs") external debounce: (t<'ca, 'sa, 'a>) => (. t<'cb, 'sb, 'b>) => t<'cb, 'sb, 'b> = "debounce"
